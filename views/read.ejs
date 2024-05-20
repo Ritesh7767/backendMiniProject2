@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body class="bg-zinc-800 p-3 text-white">
+    <a href="/" class="text-blue-400">Go Back</a>
+    <div class="container m-auto flex gap-3">
+        <% result.forEach(user => { %>
+            <% const {username, image, email, _id} = user %>
+            <div class="bg-zinc-500 w-1/4 rounded-md p-2 ">
+                <div class="h-[40vh] w-full">
+                    <img src="<%=image%>" class="object-cover rounded-md w-full h-full">
+                </div>
+                <h1 class="text-xl font-bold mt-2"><%=username%></h1>
+                <h2 class="text-lg font-semibold mt-1"><%=email%></h2>
+                <div class="mt-1 flex justify-between">
+                    <a href="/edit/<%=_id%>" class="bg-yellow-500 px-2 py-1 rounded-md font-bold text-sm">Edit</a>
+                    <a href="/delete/<%=username%>" class="bg-red-400 px-2 py-1 rounded-md font-bold text-sm">Delete</a>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</body>
+</html>
